@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+
+    <!-- Always include this line of code!!! -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/media_queries.css" />
+
+    <script type="module" src="/js/controller.js"></script>
+
+    <title>Flow</title>
+
+   
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Flow" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  </head>
+
+  <body>
+    <audio id="suctionSound" src="sound/final.mp3" preload="auto"></audio>
+    <section class="header-section container">
+      <img src="img/logo.png" class="logo"/>
+    <div class="quote">
+      <p class="quote-text"><span class="quote-paran">“</span> Be yourself; everyone else is already taken <span class="quote-paran">”</p>
+      <p class="quote-author">―Oscar Wilde</p>
+      </div>
+    </section>
+
+
+    <section class="section-task container">
+      <h3 class="cur-date"> 23 August(Monday)</h3> 
+
+      <div class="grid-task-section">
+
+
+        <h4 class="heading-category-task heading">General Task (Month)</h4>
+
+
+        <div class=" task-container task-container--general">
+        
+          <!-- <figure class="task">
+            <ion-icon name="radio-button-off-outline" class="to-do-radio-btn p3"></ion-icon>
+
+            <div class="task-info">
+            <p class="task-title">Practise badminton for 15 mins   </p>
+         
+            </div>
+
+            Box for edit btn and timeline icon
+            <div class="edit-time-box"> 
+              <div class="edit-delete-btn">
+                <button class="btn-edit"><ion-icon name="create-outline"></ion-icon></button>
+                <button class="btn-delete"><ion-icon name="remove-outline" class="icon-delete"></ion-icon></button>
+                </div>
+            <p class="deadline-slot"> <ion-icon name="alarm-outline" class="icon-time"></ion-icon> (Morning)</p>
+            </div>
+        </figure> -->
+
+        <!-- <figure class="task">
+
+          <ion-icon name="radio-button-off-outline" class="to-do-radio-btn p2"></ion-icon>
+          <div class="task-info">
+            <p class="task-title">Coding and learn node js           </ion-icon> </p>
+        
+            </div>
+            <div> 
+              <div class="edit-delete-btn">
+              <button class="btn-edit"><ion-icon name="create-outline"></ion-icon></button>
+              <button class="btn-delete"><ion-icon name="remove-outline" class="icon-delete"></ion-icon></button>
+              </div>
+              </div>
+        </figure> -->
+
+
+
+        <button class="btn-add-task btn-add-task-general"   data-cat="general"><ion-icon name="add-outline" class="icon-add"></ion-icon>  Add task</button>
+
+
+        <div class="container-grid-task-done  container-grid-task-done-general">
+   
+
+          </div>
+
+</div>
+
+      <h4 class="heading-category-task margin-top heading">Daily husstle</h4>
+      <div class="task-container task-container--daily-task">
+       <!-- <figure class="task">
+        <ion-icon name="radio-button-off-outline" class="to-do-radio-btn p1"></ion-icon>
+        <div class="task-info">
+       <p class="task-title">Coding and learn node js </p>
+       <p class="task-description">(Make sure you solve the hackerrank challenge also)</p>
+       </div>
+       <div class="edit-time-box"> 
+        <div class="edit-delete-btn">
+          <button class="btn-edit"><ion-icon name="create-outline"></ion-icon></button>
+          <button class="btn-delete"><ion-icon name="remove-outline" class="icon-delete"></ion-icon></button>
+          </div>
+        <p class="deadline-slot"> <ion-icon name="alarm-outline" class="icon-time"></ion-icon> (Morning)</p>
+        </div>
+        </figure> -->
+
+        <!-- <form class="add-task-form">
+         
+             <input type="text" id="" name="" placeholder="Practise coding" class="input-task-title">
+
+           <input type="text" id="" name="" placeholder="Description" class="input-task-description">
+
+           <div class="input-priority-options">
+
+            <div class="input-radio-priority">
+             <input type="radio" id="p1" name="p" value="p1" class="option" >
+             <label for="p">  <ion-icon name="flag-outline" class="p1" ></ion-icon> <span>Priority 1</span> </label>
+            </div>
+
+            <div class="input-radio-priority">
+            <input type="radio" id="p2" name="p" value="p2" class="option">
+            <label for="p"> <ion-icon name="flag-outline" class="p2"></ion-icon> Priority 2 </label>
+            </div>
+
+            <div class="input-radio-priority">
+            <input type="radio" id="p3" name="p" value="p3" class="option">
+            <label for="p">  <ion-icon name="flag-outline" class="p3"></ion-icon> Priority 3 </label>
+            </div>
+          </div>
+
+         <div class="select-time-options">
+          <label for="time-period"> Schedule it:</label>
+          <select id="deadline-option"  class="deadline-option" name="time-period">
+            <option value="none">None</option>
+          <option value="morning">Morning (6:00 AM - 12:00 PM)</option>
+          <option value="afternoon">Afternoon (12:00 PM - 6:00 PM)</option>
+          <option value="evening">Evening (6:00 PM - 9:00 PM)</option>
+          <option value="night">Night (9:00 PM - 6:00 AM)</option>
+          </select>
+        </div>
+
+          <div class="form-btns">
+         <button class="btn btn-cancel-form">Cancel</button>
+         <button class="btn-add-task-form btn">Add task</button>
+         </div>
+          
+        </form> -->
+
+
+        <button class="btn-add-task btn-add-task-daily " data-cat="daily"><ion-icon name="add-outline" class="icon-add"></ion-icon>  Add task</button>
+
+        <!-- <button class="btn-add-task"><ion-icon name="add-outline" class="icon-add"></ion-icon> Add task</button> -->
+        <div class="container-grid-task-done container-grid-task-done-daily">
+
+          </div>
+
+      </div>
+
+      </div>
+
+
+
+      
+    </section>
+<div class="modal-overlay">
+  <div class="modal-window">
+     <p>You have unfinished tasks from yesterday.</p>
+     <p> Do you want to add them now?</p>
+     <div class="btns">
+    <button class="modal-btn btn-no">No</button>
+    <button class="modal-btn btn-yes">Yes</button>
+    </div>
+ </div>
+</div>
+
+  </body>
+</html>
+
+
