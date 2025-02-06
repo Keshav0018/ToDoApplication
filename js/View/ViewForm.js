@@ -396,17 +396,17 @@ class ViewForm {
 
    <div class="input-radio-priority">
     <input type="radio" id="p1" name="p" value="p1" class="option" >
-    <label for="p">  <ion-icon name="flag-outline" class="p1" ></ion-icon> <span>Priority 1</span> </label>
+    <label for="p">  <ion-icon name="flag-outline" class="p1" ></ion-icon> Must</label>
    </div>
 
    <div class="input-radio-priority">
    <input type="radio" id="p2" name="p" value="p2" class="option">
-   <label for="p"> <ion-icon name="flag-outline" class="p2"></ion-icon> Priority 2 </label>
+   <label for="p"> <ion-icon name="flag-outline" class="p2"></ion-icon> Should </label>
    </div>
 
    <div class="input-radio-priority">
    <input type="radio" id="p3" name="p" value="p3" class="option" checked>
-   <label for="p">  <ion-icon name="flag-outline" class="p3"></ion-icon> Priority 3 </label>
+   <label for="p">  <ion-icon name="flag-outline" class="p3"></ion-icon> Could</label>
    </div>
  </div>
 

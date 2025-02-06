@@ -164,7 +164,7 @@
   .add-task-form {
     font-size: 1.6rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     row-gap: 2.6rem;
   }
 
@@ -207,6 +207,7 @@
   }
   .task-container {
     gap: 3rem;
+    flex-shrink: 0;
   }
 
   .input-priority-options {
@@ -219,7 +220,6 @@
   }
 
   .form-btns {
-    grid-column: 2/3;
   }
 
   .modal-window {
