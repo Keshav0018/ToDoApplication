@@ -89,7 +89,7 @@ body {
 
   /* Only works if there is nothing absolutely positioned in relation to body */
   overflow-x: hidden;
-  background-color: #da2525;
+  background-color: #ffffff;
   font-size: 1.6rem;
   padding-bottom: 7.2rem;
   scroll-behavior: smooth;
