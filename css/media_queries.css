@@ -230,6 +230,12 @@
   .modal-btn {
     padding: 0.4rem 0.8rem;
   }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* Ensures iOS does not trigger zoom */
+  }
 }
 
 @media (max-width: 28em) {
