@@ -62,7 +62,6 @@ const controlSubmitForm = function (cat, data, id = "", el = "") {
 
   model.storeDateMonth();
   model.store();
-  console.log(model.state);
 };
 
 const controlCancel = function () {
@@ -128,10 +127,10 @@ const controlCheckListTask = function (id) {
     controlEditForm
   );
 
-  console.log(model.state.taskList);
   model.storeDateMonth();
 };
 
+// geting this retrive data and modifiying acording to user then setting it to state and then displaying state
 let retriveData;
 
 // on LOAD IF STATE EXIST IN LOCAL STORAGE THEN STATE  = NEW STATE
@@ -189,9 +188,7 @@ window.addEventListener("load", async function () {
   } else {
     model.setState(retriveData);
   }
-  console.log(month);
 
-  console.log(model.state);
   const allTaskDone = model.state.taskList.every((task) => task.done);
   ViewForm.addHandler(controlAddForm);
   ViewForm.renderTask(
@@ -253,15 +250,9 @@ document.querySelector(".btn-no").addEventListener("click", function (e) {
 
 // on exit and reloat i want to store the data .
 window.addEventListener("unload", function (e) {
-  console.log("stored");
   model.store();
 });
 
 window.addEventListener("beforeunload", function (event) {
-  console.log("stored");
   model.store();
 });
-
-model.createQuote();
-
-// Adding the hover effets

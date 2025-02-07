@@ -1,8 +1,6 @@
 import { generateRandomId } from "./helper.js";
 
 const today = new Date();
-const date = today.getDate(); // Day of the month (1-31)
-const month = today.getMonth() + 1; // Month (0-11), so add 1
 
 export let state = {
   taskList: [],
@@ -69,8 +67,6 @@ export const createQuote = async function () {
   const quote = await fetch("https://dummyjson.com/quotes/random");
 
   const quoteData = await quote.json();
-
-  console.log(quoteData);
 
   return quoteData;
 };

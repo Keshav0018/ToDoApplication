@@ -10,16 +10,27 @@ class ViewForm {
   }
 
   render(category, submitHandler, cancelHnadler, el = "", data = "") {
-    console.log(category);
-    console.log(data);
+    // Created submit funcion as used again again
+
+    const submitFunction = function (e) {
+      e.preventDefault();
+      const dataArr = [
+        ...new FormData(document.querySelector(".add-task-form")),
+      ];
+
+      const dataEntered = Object.fromEntries(dataArr);
+
+      submitHandler(category, dataEntered, data.id, el);
+    };
+
     const html = this._generateMarkup("form", category);
 
     const neighbour = document.querySelector(
       `.container-grid-task-done-${category}`
     );
-    if (el === "" && data === "") {
-      //  // Sending the task completed container down
 
+    // Means add form have been asked
+    if (el === "" && data === "") {
       neighbour.insertAdjacentHTML("beforebegin", html);
 
       // Adding animation to make it smooth entry of form;
@@ -35,7 +46,9 @@ class ViewForm {
         duration: 0.5,
         ease: "power2.out",
       });
-    } else if (el !== "") {
+    }
+    // This meand add form have been requested by error
+    else if (el !== "") {
       el.insertAdjacentHTML("beforebegin", html);
       const formInsertedEdited = document.querySelector(".add-task-form");
       formInsertedEdited.style.opacity = 0;
@@ -47,29 +60,21 @@ class ViewForm {
       this._addDataToForm(data);
     }
 
+    // This means add form have been requested by edit
     if (data !== "" && el === "") {
       neighbour.insertAdjacentHTML("beforebegin", html);
       this._addDataToForm(data);
     }
 
+    // Removing add task buttons
     const addFormbtns = [...document.querySelectorAll(`.btn-add-task`)];
 
     addFormbtns.forEach((btn) => {
       btn.style.display = "none";
     });
 
+    // Adding submit handler to submit Button and on eneter
     const submitBtn = document.querySelector(".btn-add-task-form");
-
-    const submitFunction = function (e) {
-      e.preventDefault();
-      const dataArr = [
-        ...new FormData(document.querySelector(".add-task-form")),
-      ];
-
-      const dataEntered = Object.fromEntries(dataArr);
-
-      submitHandler(category, dataEntered, data.id, el);
-    };
 
     submitBtn.addEventListener("click", submitFunction);
 
@@ -81,15 +86,6 @@ class ViewForm {
       });
     });
 
-    // document
-    //   .querySelector(".add-task-form")
-    //   .addEventListener("keydown", function (event) {
-    //     if (event.key === "Enter") {
-    //       event.preventDefault(); // Prevent accidental multiple submits
-    //       submitFunction(event);
-    //     }
-    //   });
-
     if (document.getElementById("deadline-option")) {
       const input = document.getElementById("deadline-option");
 
@@ -100,6 +96,7 @@ class ViewForm {
       });
     }
 
+    // Adding cancler handler to cancel btn
     const cancelBtn = document.querySelector(".btn-cancel-form");
 
     cancelBtn.addEventListener("click", function (e) {
@@ -111,17 +108,10 @@ class ViewForm {
     document.querySelector(".add-task-form").scrollIntoView({
       behavior: "smooth",
       block: "center",
-      inline: "center", // Optionally, centers it horizontally (if needed)
+      inline: "center",
     });
 
-    // document.querySelectorAll(".text-input").forEach((input) => {
-    //   input.addEventListener("focus", (event) => {
-    //     setTimeout(() => {
-    //       event.target.scrollIntoView({ behavior: "smooth", block: "center" });
-    //     }, 300); // Delay to wait for keyboard animation
-    //   });
-    // });
-
+    // Making sure in phones the form comes up above the keyboard
     document.querySelectorAll(".text-input").forEach((input) => {
       input.addEventListener("focus", (event) => {
         setTimeout(() => {
@@ -134,14 +124,12 @@ class ViewForm {
         }, 500);
       });
     });
-
-    setTimeout(() => {}, 300); // Delay to wait for keyboard animation
   }
 
   _addDataToForm(data) {
     const form = document.querySelector(".add-task-form");
     for (const key in data) {
-      const field = form.querySelector(`[name="${key}"]`); // Match by `name` attribute
+      const field = form.querySelector(`[name="${key}"]`);
       if (field) {
         field.value = data[key];
       }
@@ -160,6 +148,7 @@ class ViewForm {
     document.getElementById(data.pirority).checked = true;
   }
 
+  // Adding hander to add task btn to render form
   addHandler(handler) {
     const addFormBtns = [...document.querySelectorAll(".btn-add-task")];
 
@@ -191,8 +180,6 @@ class ViewForm {
       if (cat !== "") {
         container = document.querySelector(`.container-grid-task-done-${cat}`);
       }
-
-      // Disable scrolling
 
       let height = form?.offsetHeight;
 
@@ -226,8 +213,6 @@ class ViewForm {
       });
     }
 
-    // Re rendering the add task btn
-
     // creating genral task
 
     const generalTasks = taskArr.filter(
@@ -249,7 +234,7 @@ class ViewForm {
       .querySelector(".task-container--general")
       .insertAdjacentHTML("afterbegin", htmlGeneralTask);
 
-    // creating genral task
+    // creating daily task
 
     const dailyTasks = taskArr.filter(
       (task) => task.cat === "daily" && task.done === false
@@ -267,6 +252,7 @@ class ViewForm {
       .querySelector(".task-container--daily-task")
       .insertAdjacentHTML("afterbegin", htmlDailyTask);
 
+    // Editing for animation
     if (cur !== "edit") {
       let lastElement = [];
 
@@ -284,8 +270,6 @@ class ViewForm {
         lastItem.style.transform = "scale(0.3)";
       }
 
-      console.log(lastItem);
-
       if (cat !== "") {
         gsap.to(lastItem, {
           opacity: 1, // Start with opacity 0 (invisible)
@@ -295,6 +279,8 @@ class ViewForm {
         });
       }
     }
+
+    // Adding handler to checklist task
     [...document.querySelectorAll(".to-do-radio-btn")].forEach((toDoBtn) =>
       toDoBtn.addEventListener(
         "click",
@@ -315,10 +301,10 @@ class ViewForm {
       )
     );
 
+    // Adding handler to delet task
     [...document.querySelectorAll(".btn-delete")].forEach((deleteBtn) =>
       deleteBtn.addEventListener("click", function () {
         const task = deleteBtn.closest(".task");
-        console.log(task);
 
         gsap.to(task, {
           scale: 1.2,
@@ -332,6 +318,7 @@ class ViewForm {
       })
     );
 
+    // Adding handler to edit task
     [...document.querySelectorAll(".btn-edit")].forEach((editBtn) =>
       editBtn.addEventListener("click", function () {
         const task = editBtn.closest(".task");
@@ -346,11 +333,10 @@ class ViewForm {
         setTimeout(function () {
           editBtnHandler(task.dataset.id, elementBeforeTobeInserted);
         }, 500);
-
-        console.log(task);
       })
     );
 
+    // Creatng the hover effects for to do radio btn
     const icons = document.querySelectorAll(".to-do-radio-btn");
 
     if (icons) {
@@ -447,6 +433,8 @@ class ViewForm {
 </form>`;
   }
 
+  // Rendering error
+  //clearing htlm of task rendering error then re rendering form with filled details
   renderError(message, cat, submitHandler, cancelHnadler, data, id, el) {
     data.cat = cat;
     data.pirority = data.p;
@@ -457,7 +445,6 @@ class ViewForm {
       function () {
         document.querySelector(".add-task-form").remove();
         this.render(cat, submitHandler, cancelHnadler, el, data);
-        console.log(data);
       }.bind(this),
       1000
     );
@@ -478,8 +465,6 @@ class ViewForm {
 `;
       })
       .join("");
-
-    console.log(`<h5 class="heading">One step closer 🚀</h5>` + html);
 
     return (
       `<h5 class="heading">${
@@ -516,8 +501,6 @@ class ViewForm {
   }
 
   renderCurDate(state) {
-    console.log(state);
-
     const months = [
       "January",
       "February",
@@ -558,7 +541,6 @@ class ViewForm {
   }
 
   renderQuote(quote) {
-    console.log(quote);
     document.querySelector(
       ".quote-text"
     ).innerHTML = `<span class="quote-paran">“</span>${quote.quote}<span class="quote-paran">”`;
