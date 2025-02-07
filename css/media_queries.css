@@ -162,21 +162,21 @@
   }
 
   .add-task-form {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 2.6rem;
   }
 
   .input-task-title {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
   .input-task-description {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
   .input-task-description::placeholder {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
   .option {
@@ -185,6 +185,7 @@
   }
 
   .input-radio-priority {
+    text-align: center;
     font-size: 1.4rem;
     display: flex;
     align-items: center;
@@ -229,12 +230,6 @@
 
   .modal-btn {
     padding: 0.4rem 0.8rem;
-  }
-
-  input,
-  textarea,
-  select {
-    font-size: 16px; /* Ensures iOS does not trigger zoom */
   }
 }
 
