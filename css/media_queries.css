@@ -180,13 +180,13 @@
   }
 
   .option {
-    transform: scale(0.85);
-    margin-right: 0.2rem;
+    transform: scale(1);
+    margin-right: 0.4rem;
   }
 
   .input-radio-priority {
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     display: flex;
     align-items: center;
     justify-content: center;

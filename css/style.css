@@ -257,7 +257,7 @@ body {
 .btn-edit {
   /* to span across whole elemtn and then send it to end  */
   display: flex;
-  justify-self: end;
+  justify-self: flex-end;
   background-color: transparent;
   font-size: 2rem;
   font-weight: 600;
@@ -277,12 +277,12 @@ body {
 }
 
 .deadline-slot {
-  text-align: end;
+  text-align: flex-end;
   font-size: 1.4rem;
 }
 
 .icon-time {
-  justify-self: end;
+  justify-self: flex-end;
   color: green;
   transform: scale(1.1);
 }
