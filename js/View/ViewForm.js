@@ -114,11 +114,24 @@ class ViewForm {
       inline: "center", // Optionally, centers it horizontally (if needed)
     });
 
+    // document.querySelectorAll(".text-input").forEach((input) => {
+    //   input.addEventListener("focus", (event) => {
+    //     setTimeout(() => {
+    //       event.target.scrollIntoView({ behavior: "smooth", block: "center" });
+    //     }, 300); // Delay to wait for keyboard animation
+    //   });
+    // });
+
     document.querySelectorAll(".text-input").forEach((input) => {
       input.addEventListener("focus", (event) => {
         setTimeout(() => {
-          event.target.scrollIntoView({ behavior: "smooth", block: "center" });
-        }, 300); // Delay to wait for keyboard animation
+          requestAnimationFrame(() => {
+            event.target.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+          });
+        }, 500);
       });
     });
 
